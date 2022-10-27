@@ -27,7 +27,7 @@ Product.init(
     path: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: '/images/placeholder.png',
+      defaultValue: 'https://via.placeholder.com/300',
     },
   },
   {

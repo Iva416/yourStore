@@ -31,7 +31,7 @@ ProductOrder.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'product-order',
+    modelName: 'product_order',
   }
 );
 

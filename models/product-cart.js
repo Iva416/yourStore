@@ -18,7 +18,7 @@ ProductCart.init(
         key: 'id',
       },
     },
-    cart: {
+    cart_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'cart',
@@ -31,7 +31,7 @@ ProductCart.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'product-cart',
+    modelName: 'product_cart',
   }
 );
 
