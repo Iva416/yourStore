@@ -1,8 +1,8 @@
-const router = require("express").Router();
-const { User } = require("../../models");
+const router = require('express').Router();
+const { User } = require('../../models');
 
 // GET all users
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const postData = await User.findAll();
 
@@ -14,9 +14,9 @@ router.get("/", async (req, res) => {
 });
 
 // GET user by id
-router.get("/:id", async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
-    const postData = await User.findAll({where:{id: req.params.id}});
+    const postData = await User.findAll({ where: { id: req.params.id } });
 
     res.json(postData);
   } catch (err) {
@@ -28,7 +28,9 @@ router.get("/:id", async (req, res) => {
 // POST login
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { username: req.body.username } });
+    const userData = await User.findOne({
+      where: { username: req.body.username },
+    });
 
     if (!userData) {
       res
@@ -49,10 +51,9 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      
+
       res.json({ user: userData, message: 'You are now logged in!' });
     });
-
   } catch (err) {
     res.status(400).json(err);
   }
