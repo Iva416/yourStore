@@ -1,0 +1,22 @@
+[
+    {
+        "name": "T-Shirt",
+        "price": 20,
+        "description": "product of best designer 2022"
+    },
+    {
+        "name": "BabyShark Toy",
+        "price": 15,
+        "description": "product of best designer 2021"
+    },
+    {
+        "name": "MacBook",
+        "price": 1000,
+        "description": "Best selling apple product"
+    },
+    {
+        "name": "Javascript Guide",
+        "price": 30,
+        "description": "Web develop tool you need"
+    }
+]
