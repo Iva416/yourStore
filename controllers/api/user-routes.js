@@ -1,27 +1,11 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-// GET all users
-router.get('/', async (req, res) => {
+router.get('/login', async (req, res) => {
   try {
-    const postData = await User.findAll();
-
-    res.json(postData);
+    res.render('login');
   } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
-// GET user by id
-router.get('/:id', async (req, res) => {
-  try {
-    const postData = await User.findAll({ where: { id: req.params.id } });
-
-    res.json(postData);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
+    res.status(400).json(err);
   }
 });
 

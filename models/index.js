@@ -50,3 +50,5 @@ Product.belongsToMany(Order, {
     unique: false,
   },
 });
+
+module.exports = { Cart, Product, Order, User, ProductCart, ProductOrder };
