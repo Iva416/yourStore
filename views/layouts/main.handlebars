@@ -19,9 +19,9 @@
             <a href="/orders">Order</a>
             <div class="topnav-right">
                 {{#if logged_in}}
-                <a href="/logout">Logout</a>
+                    <a href="/logout">Logout</a>
                 {{else}}
-                <a href="/login">Login</a>
+                    <a href="/login">Login</a>
                 {{/if}}
             </div>
         </nav>
@@ -46,7 +46,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
 {{#if logged_in}}
-<script src="/js/logout.js"></script>
+    <script src="/js/logout.js"></script>
 {{/if}}
 <script src="/js/store.js"></script>
 
