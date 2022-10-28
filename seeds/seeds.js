@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const sequelize = require('../config/connection');
 const {
   User,
