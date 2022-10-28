@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { Product } = require('../models');
+const { Product, Cart, ProductCart } = require('../models');
+const withAuth = require('../utils/auth');
 
 //Route to get all product
 router.get('/', async (req, res) => {
@@ -8,7 +9,17 @@ router.get('/', async (req, res) => {
   });
 
   const product = productData.map((product) => product.get({ plain: true }));
-  res.render('home', { product });
+  res.render('home', { product, logged_in: req.session.logged_in });
+});
+
+router.get('/cart', withAuth, async (req, res) => {
+  const rawProduct = await Cart.findOne({
+    where: { id: req.session.user_id },
+    include: [{ model: Product, through: ProductCart }],
+  });
+  const product = rawProduct.get({ plain: true });
+  // res.json(product);
+  res.render('cart', { ...product, logged_in: req.session.logged_in });
 });
 
 router.get('/login', async (req, res) => {
