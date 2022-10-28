@@ -1,10 +1,20 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-router.get('/login', async (req, res) => {
+// POST register
+router.post('/register', async (req, res) => {
   try {
-    res.render('login');
+    let userCheck = await User.findOne({ where: { email: req.body.email } });
+    if (userCheck === null) {
+      await User.create(req.body);
+
+      res.redirect(307, '/api/user/login');
+    } else {
+      // Email already assocciated with account
+      res.status(201).json('An account with this email already exists');
+    }
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });
@@ -13,7 +23,7 @@ router.get('/login', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({
-      where: { username: req.body.username },
+      where: { email: req.body.email },
     });
 
     if (!userData) {
@@ -39,6 +49,7 @@ router.post('/login', async (req, res) => {
       res.json({ user: userData, message: 'You are now logged in!' });
     });
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });
