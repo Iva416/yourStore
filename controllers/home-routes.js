@@ -4,12 +4,15 @@ const withAuth = require('../utils/auth');
 
 //Route to get all product
 router.get('/', async (req, res) => {
-  const productData = await Product.findAll().catch((err) => {
-    res.json(err);
-  });
+  try {
+    const productData = await Product.findAll();
 
-  const product = productData.map((product) => product.get({ plain: true }));
-  res.render('home', { product, logged_in: req.session.logged_in });
+    const product = productData.map((product) => product.get({ plain: true }));
+    res.render('home', { product, logged_in: req.session.logged_in });
+  } catch (err) {
+    console.log(err);
+    res.json(err).status(500);
+  }
 });
 
 router.get('/cart', withAuth, async (req, res) => {

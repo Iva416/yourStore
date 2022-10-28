@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
     const productData = await Product.findAll();
     const product = productData.map((product) => product.get({ plain: true }));
 
-    res.render('product', product);
+    res.render('home', product);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

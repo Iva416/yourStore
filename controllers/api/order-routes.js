@@ -20,8 +20,8 @@ router.get('/', auth, async (req, res) => {
     });
 
     const order = orderData.map((order) => order.get({ plain: true }));
-    res.json(order);
-    //res.render('orders', order);
+
+    res.render('orders', order);
   } catch (err) {
     res.status(500).json(err);
   }
