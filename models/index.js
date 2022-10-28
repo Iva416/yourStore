@@ -25,12 +25,14 @@ Order.belongsTo(User, {
 
 // cart and production relationship (many to many)
 Cart.belongsToMany(Product, {
+  onDelete: 'CASCADE',
   through: {
     model: ProductCart,
     unique: false,
   },
 });
 Product.belongsToMany(Cart, {
+  onDelete: 'CASCADE',
   through: {
     model: ProductCart,
     unique: false,
@@ -39,12 +41,14 @@ Product.belongsToMany(Cart, {
 
 // order and production relationship (many to many)
 Order.belongsToMany(Product, {
+  onDelete: 'CASCADE',
   through: {
     model: ProductOrder,
     unique: false,
   },
 });
 Product.belongsToMany(Order, {
+  onDelete: 'CASCADE',
   through: {
     model: ProductOrder,
     unique: false,
