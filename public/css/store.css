@@ -1,3 +1,11 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+  color: #c5c6c7;
+}
+
 /* Add a black background color to the top navigation */
 .topnav {
     background-color: #333;
@@ -29,6 +37,30 @@
 /* Right-aligned section inside the top navigation */
 .topnav-right {
   float: right;
+}
+
+.card {
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    max-height: 200vh; 
+    text-align:center;
+    margin:auto;
+    
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2%;
+  background-color: #0B0C10;
+}
+
+
+body {
+  background-color: #0B0C10;
 }
 
 .footer {

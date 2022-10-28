@@ -1,7 +1,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Your Store</title>
-    <link rel="stylesheet" href="/css/store.css">
+    <link rel="stylesheet" href="../public/css/store.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 
@@ -12,22 +12,16 @@
             YourStore
         </h1>
         </header>
-        <main class="container container-fluid mt-5">
-            {{{ body }}}
-            <div class="product-card">
-                <div class="product-card-header">
-                    {{name}}
-                </div>
-                <div class="product-card-body">
-                    <img src="../public/images/jibshirt1.png" alt="T-shirt">
-                    <p>
-                        Description:
-                        {{Description}}
-                    </p>
-                    <p>
-                        {{price}}
-                    </p>
-                </div>
+        <div class="topnav">
+            <a class="active" href="#home">Home</a>
+            <a href="#cart">News</a>
+            <a href="#orders">Contact</a>
+            <div class="topnav-right">
+                <a href="#contactus">Search</a>
+                <a href="#about">About</a>
+            </div>
+            <main class="container container-fluid mt-5">
+                {{{ body }}}
                 <div class="product-card">
                     <div class="product-card-header">
                         {{name}}
@@ -42,9 +36,23 @@
                             {{price}}
                         </p>
                     </div>
-                </div>
-        </main>
-    </div>
+                    <div class="product-card">
+                        <div class="product-card-header">
+                            {{name}}
+                        </div>
+                        <div class="product-card-body">
+                            <img src="../public/images/jibshirt1.png" alt="T-shirt">
+                            <p>
+                                Description:
+                                {{Description}}
+                            </p>
+                            <p>
+                                {{price}}
+                            </p>
+                        </div>
+                    </div>
+            </main>
+        </div>
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>

@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Product } = require('../../models');
 
-// GET get all orders from the active user
+// GET get all products from database
 router.get('/', async (req, res) => {
   try {
     const productData = await Product.findAll();
@@ -27,3 +27,5 @@ router.get('/:id', async (req, res) => {
 });
 
 module.exports = router;
+
+

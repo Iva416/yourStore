@@ -9,6 +9,7 @@ const {
 const auth = require('../../utils/auth');
 
 // GET get all orders from the active user
+
 router.get('/', auth, async (req, res) => {
   try {
     console.log(req.session.user_id);
