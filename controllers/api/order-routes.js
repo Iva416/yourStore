@@ -11,15 +11,18 @@ const auth = require('../../utils/auth');
 // GET get all orders from the active user
 router.get('/', auth, async (req, res) => {
   try {
+    console.log(req.session.user_id);
     const orderData = await Order.findAll({
-      where: { user_id: req.session.user_id },
+      where: {
+        user_id: req.session.user_id,
+      },
+      include: { model: Product, through: ProductOrder },
     });
 
     const order = orderData.map((order) => order.get({ plain: true }));
-
-    res.render('orders', order);
+    res.json(order);
+    //res.render('orders', order);
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -28,7 +31,10 @@ router.get('/', auth, async (req, res) => {
 router.get('/:id', auth, async (req, res) => {
   try {
     const orderData = await Order.findOne({
-      where: { id: req.params.id },
+      where: {
+        id: req.params.id,
+      },
+      include: { model: Product, through: ProductOrder },
     });
 
     if (orderData.user_id === req.session.user_id) {
@@ -46,24 +52,26 @@ router.get('/:id', auth, async (req, res) => {
 // Make current cart into order
 router.post('/', auth, async (req, res) => {
   try {
-    let cart = Cart.findOne({
+    let cart = await Cart.findOne({
       where: { user_id: req.session.user_id },
       include: { model: Product, through: ProductCart },
     });
 
-    console.log(cart);
-
     if (cart !== null) {
-      // let order = Order.create({ user_id: req.session.user_id });
+      let order = await Order.create({ user_id: req.session.user_id });
 
-      // for (const product of cart.Products) {
+      for (const product of cart.products) {
+        await ProductOrder.create({
+          product_id: product.id,
+          order_id: order.id,
+        });
+      }
 
-      // }
-
-      res.redirect('/');
+      cart.destroy();
+      res.redirect('/api/orders');
     } else {
       // We found no cart in user's name
-      res.status(404);
+      res.status(404).json({ message: 'User has no cart' });
     }
   } catch (err) {
     console.log(err);
