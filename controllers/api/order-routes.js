@@ -3,6 +3,7 @@ const { Order } = require('../../models');
 const auth = require('../../utils/auth');
 
 // GET get all orders from the active user
+
 router.get('/', auth, async (req, res) => {
   try {
     const orderData = await Order.findAll({

@@ -1,17 +1,17 @@
 <div class="product-card">
 <div class="product-card-header">
-    {{name}}
+    {{product.name}}
 </div>
 <div class="product-card-body">
-{{!-- image link --}}
+<img src="{{product.path}}" alt="Product001" width="400" height="200">
     <p>
         Description:
-        {{Description}}   
+        {{product.description}}   
     </p>
    <p>
-        {{price}}
+        {{price.price}}
    </p> 
 </div>
 </div>
-
+{{!-- Add to Cart --}}
 
