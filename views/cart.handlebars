@@ -1,0 +1,15 @@
+<div class="card-group- row">
+    {{#each products as |product|}}
+        <div class="card mb-2 col-3 mx-2">
+            <img class="card-img-top mt-3" src="{{path}}" alt="{{name}}">
+            <div class="card-body">
+                <h4 class="card-title">{{name}}</h4>
+                <p class="card-text">{{description}}</p>
+                <div class="row justify-content-between align-items-center">
+                    <p class="card-text ml-3">Price: {{price}} CAD</p>
+                    <button class="btn btn-danger mr-2"> Remove</button>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</div>
