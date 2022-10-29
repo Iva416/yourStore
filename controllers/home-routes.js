@@ -9,17 +9,26 @@ router.get('/', async (req, res) => {
   });
 
   const product = productData.map((product) => product.get({ plain: true }));
-  res.render('home', { product, logged_in: req.session.logged_in });
+  res.render('home', {
+    product,
+    logged_in: req.session.logged_in,
+    username: req.session.name,
+  });
 });
 
+//get all products from user shopping cart
 router.get('/cart', withAuth, async (req, res) => {
   const rawProduct = await Cart.findOne({
-    where: { id: req.session.user_id },
-    include: [{ model: Product, through: ProductCart }],
+    where: { user_id: req.session.user_id },
+    include: [{ model: ProductCart, include: Product }],
   });
   const product = rawProduct.get({ plain: true });
-  // res.json(product);
-  res.render('cart', { ...product, logged_in: req.session.logged_in });
+
+  res.render('cart', {
+    ...product,
+    logged_in: req.session.logged_in,
+    username: req.session.name,
+  });
 });
 
 router.get('/login', async (req, res) => {
