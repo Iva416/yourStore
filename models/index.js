@@ -38,6 +38,20 @@ Product.belongsToMany(Cart, {
     unique: false,
   },
 });
+Cart.hasMany(ProductCart, {
+  foreignKey: 'cart_id',
+  onDelete: 'CASCADE',
+});
+ProductCart.belongsTo(Cart, {
+  foreignKey: 'cart_id',
+});
+Product.hasMany(ProductCart, {
+  foreignKey: 'product_id',
+  onDelete: 'CASCADE',
+});
+ProductCart.belongsTo(Product, {
+  foreignKey: 'product_id',
+});
 
 // order and production relationship (many to many)
 Order.belongsToMany(Product, {
