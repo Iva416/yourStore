@@ -1,15 +1,29 @@
-<div class="card-group- row">
-    {{#each products as |product|}}
-        <div class="card mb-2 col-3 mx-2">
-            <img class="card-img-top mt-3" src="{{path}}" alt="{{name}}">
-            <div class="card-body">
-                <h4 class="card-title">{{name}}</h4>
-                <p class="card-text">{{description}}</p>
-                <div class="row justify-content-between align-items-center">
-                    <p class="card-text ml-3">Price: {{price}} CAD</p>
-                    <button class="btn btn-danger mr-2"> Remove</button>
+<div>
+
+    <div>Hello, {{username}}</div>
+    <div class="d-flex justify-content-end">
+        <button class="btn btn-primary mb-3" data-cart='{{id}}' id="submit-cart">Submit Cart</button>
+    </div>
+    <div class="card-group row product-list">
+        {{#if product_carts.length}}
+            {{#each product_carts as |cart|}}
+                <div class="card mb-2 col-3 mx-2 border">
+                    <img class="card-img-top mt-3" src="{{cart.product.path}}" alt="{{cart.product.name}}">
+                    <div class="card-body">
+                        <h4 class="card-title">{{cart.product.name}}</h4>
+                        <p class="card-text">{{cart.product.description}}</p>
+                        <div class="row justify-content-between align-items-center">
+                            <p class="card-text ml-3">Price: {{cart.product.price}} CAD</p>
+                            <button class="btn btn-danger mr-2" data-cid="{{../id}}" data-pid="{{cart.product.id}}">
+                                Remove</button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    {{/each}}
+            {{/each}}
+        {{else}}
+            <div> Your Shopping cart is empty!</div>
+        {{/if}}
+    </div>
+
 </div>
+<script src="/js/cart.js"></script>

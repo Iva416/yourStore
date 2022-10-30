@@ -1,7 +1,3 @@
-:root {
-  --black: #0b0c10;
-  --white: white;
-}
 * {
   margin: 0;
   padding: 5;
@@ -21,6 +17,7 @@ h1 {
 /* Add a black background color to the top navigation */
 .topnav {
   background-color: #333;
+  background-color: var(--black);
   overflow: hidden;
 }
 
@@ -38,7 +35,7 @@ h1 {
 /* Change the color of links on hover */
 .topnav a:hover {
   background-color: #ddd;
-  color: black;
+  color: var(--dark-black);
 }
 
 /* Add a color to the active/current link */
@@ -56,7 +53,6 @@ h1 {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  background-color: transparent;
   align-content: center;
   max-height: 200vh;
   text-align: center;
@@ -69,11 +65,16 @@ main {
   display: flex;
   flex-wrap: wrap;
   margin-top: 2%;
-  background-color: #0b0c10;
+  background-color: var(--other-black);
+}
+
+main h2 {
+  margin: 0 auto;
+  padding-bottom: 20px;
 }
 
 body {
-  background-color: #0b0c10;
+  background-color: var(--other-black);
 }
 
 .footer {
@@ -81,7 +82,7 @@ body {
   /* left: 0; */
   /* bottom: 0; */
   width: 100%;
-  background-color: black;
+  background-color: var(--dark-black);
   color: white;
   text-align: center;
   /* margin-top: 50px; */
@@ -95,6 +96,23 @@ body {
   text-align: center;
 }
 
-.row {
-  background-color: black;
+#order-list li {
+  list-style: none;
+  width: 80%;
+  margin-left: 10%;
+}
+
+#order-list li:hover {
+  background-color: var(--hover-black);
+}
+
+#order-list li {
+  border-radius: 5px;
+  padding: 10px;
+  background-color: var(--black);
+  margin-bottom: 10px;
+}
+#order-list li img {
+  width: 30px;
+  padding-right: 10px;
 }

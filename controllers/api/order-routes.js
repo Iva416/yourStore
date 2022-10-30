@@ -9,38 +9,45 @@ const {
 const auth = require('../../utils/auth');
 
 // GET get all orders from the active user
-
 router.get('/', auth, async (req, res) => {
   try {
-    console.log(req.session.user_id);
     const orderData = await Order.findAll({
       where: {
         user_id: req.session.user_id,
       },
-      include: { model: Product, through: ProductOrder },
+      include: { model: ProductOrder, include: Product },
     });
 
-    const order = orderData.map((order) => order.get({ plain: true }));
-    res.json(order);
-    //res.render('orders', order);
+    const orders = orderData.map((order) => order.get({ plain: true }));
+    res.render('orders', {
+      orders: orders,
+      logged_in: req.session.logged_in,
+      username: req.session.name,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 // Get single order
+// Display all products in the order
 router.get('/:id', auth, async (req, res) => {
   try {
     const orderData = await Order.findOne({
       where: {
         id: req.params.id,
+        user_id: req.session.user_id,
       },
-      include: { model: Product, through: ProductOrder },
+      include: { model: ProductOrder, include: Product },
     });
 
-    if (orderData.user_id === req.session.user_id) {
-      const order = orderData.map((order) => order.get({ plain: true }));
-      res.render('single-order', order);
+    if (orderData !== null) {
+      const order = orderData.get({ plain: true });
+      res.render('order', {
+        order: order,
+        logged_in: req.session.logged_in,
+        username: req.session.name,
+      });
     } else {
       res.statusCode(403);
     }
@@ -55,8 +62,10 @@ router.post('/', auth, async (req, res) => {
   try {
     let cart = await Cart.findOne({
       where: { user_id: req.session.user_id },
-      include: { model: Product, through: ProductCart },
+      include: { model: ProductCart, include: Product },
     });
+
+    console.log(cart);
 
     if (cart !== null) {
       let order = await Order.create({ user_id: req.session.user_id });
