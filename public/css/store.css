@@ -1,15 +1,27 @@
-
+:root {
+  --black: #0b0c10;
+  --white: white;
+}
 * {
   margin: 0;
-  padding: 0;
-  box-sizing: content-box;
-  color: #c5c6c7;
+  padding: 5;
+  box-sizing: border-box;
+  border-style: none;
+  color: #090909;
+}
+
+body {
+  background-color: var(--black);
+}
+
+h1 {
+  color: var(--white);
 }
 
 /* Add a black background color to the top navigation */
 .topnav {
-    background-color: #333;
-    overflow: hidden;
+  background-color: #333;
+  overflow: hidden;
 }
 
 /* Style the links inside the navigation bar */
@@ -17,7 +29,8 @@
   float: left;
   color: #f2f2f2;
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px 16px 14px;
+  padding-bottom: 16px;
   text-decoration: none;
   font-size: 17px;
 }
@@ -30,7 +43,7 @@
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #04AA6D;
+  background-color: #aa7b04;
   color: white;
 }
 
@@ -40,27 +53,27 @@
 }
 
 .card {
-
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-    max-height: 200vh; 
-    text-align:center;
-    margin:auto;
-    
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: transparent;
+  align-content: center;
+  max-height: 200vh;
+  text-align: center;
+  margin: auto;
+  border-style: none;
+  padding: 14px 16px;
 }
 
 main {
   display: flex;
   flex-wrap: wrap;
   margin-top: 2%;
-  background-color: #0B0C10;
+  background-color: #0b0c10;
 }
 
-
 body {
-  background-color: #0B0C10;
+  background-color: #0b0c10;
 }
 
 .footer {
@@ -72,4 +85,16 @@ body {
   color: white;
   text-align: center;
   /* margin-top: 50px; */
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #080808 !important;
+  color: #fff;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.row {
+  background-color: black;
 }

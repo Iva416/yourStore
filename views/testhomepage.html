@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Your Store</title>
@@ -7,115 +10,115 @@
 </head>
 
 <body>
-    <div class="flex-column justify-space-around">
-        <header class="display-flex jusitfy-space-between aign-center p-2"></header>
+    <header>
         <h1>
             YourStore
         </h1>
-        </header>
-        <div class="topnav">
+        <nav class="topnav">
             <a class="active" href="#home">Home</a>
             <a href="#cart">Cart</a>
             <a href="#orders">Orders</a>
+            <!-- if logged in  -->
+            <!-- <a href="#" id="logout">Logout</a> -->
+            <!-- else -->
+            <a href="/login">Login</a>
+            <!-- end if -->
             <div class="topnav-right">
                 <a href="#contactus">Contact Us</a>
                 <a href="#about">About</a>
             </div>
+        </nav>
+    </header>
+    <main class="flex-column justify-space-around">
 
+        <div class="row">
+            <section class="card col-3 row-3">
+                <div>TSHIRT</div>
+                <img src="../public/images/jibshirt1.png" alt="TSHIRT" width="210" height="auto" />
+                <h2>30$</h2>
+                <description>Soft 100% Cotton</description>
+            </section>
+            <section class="card col-3 row-3">
+                <div>PANTS 002</div>
+                <img src="../public/images/jibshirt1.png" alt="PANTS" width="210" height="auto" />
+                <h2>30$</h2>
+                <description>description</description>
+            </section>
+            <section class="card col-3 row-3">
+                <div>LONG SLEEVE 003</div>
+                <img src="../public/images/jibshirt1.png" alt="LONG SLEEVE SHIRT" width="210" height="auto" />
+                <h2>30$</h2>
+                <description>description</description>
+            </section>
         </div>
-
-        <body>
-            <div class="row">
-                <section class="card col-3 row-3">
-                    <header>TSHIRT</header>
-                    <img src="../public/images/jibshirt1.png" alt="TSHIRT" width="210" height="auto" />
-                    <h2>price: $30$</h2>
-                    <description>Soft 100% Cotton</description>
-                </section>
-                <section class="card col-3 row-3">
-                    <header>PANTS 002</header>
-                    <img src="../public/images/jibshirt1.png" alt="PANTS" width="210" height="auto" />
-                    <h2>price: $30$</h2>
-                    <description>description</description>
-                </section>
-                <section class="card col-3 row-3">
-                    <header>LONG SLEEVE 003</header>
-                    <img src="../public/images/jibshirt1.png" alt="LONG SLEEVE SHIRT" width="210" height="auto" />
-                    <h2>price: $30$</h2>
-                    <description>description</description>
-                </section>
-            </div>
-            <div class="row">
-                <section class="card col-3 row-3">
-                    <header>BEANIE 004</header>
-                    <description>description</description>
-                    <img src="../public/images/jibshirt1.png" alt="BEANIE" width="210" height="auto" />
-                    <h2>price: $30$</h2>
-                </section>
-                <section class="card col-3 row-3">
-                    <header>HOODIE 005</header>
-                    <description>description</description>
-                    <img src="../public/images/jibshirt1.png" alt="HOODIE" width="210" height="auto" />
-                    <h2>price: $30$</h2>
-                </section>
-                <section class="card col-3 row-3">
-                    <header>T-SHIRT 006</header>
-                    <description>description</description>
-                    <img src="../public/images/jibshirt1.png" alt="TSHIRT" width="210" height="auto" />
-                    <h2>price: $30$</h2>
-                </section>
-            </div>
-            <div class="row">
-                <section class="card col-3 row-3">
-                    <header>T-SHIRT 006</header>
-                    <description>description</description>
-                    <img src="../public/images/jibshirt1.png" alt="TSHIRT" width="210" height="auto" />
-                    <h2>price: $30$</h2>
-                </section>
-                <section class="card col-3 row-3">
-                    <header>T-SHIRT 006</header>
-                    <description>description</description>
-                    <img src="../public/images/jibshirt1.png" alt="TSHIRT" width="210" height="auto" />
-                    <h2>price: $30$</h2>
-                </section>
-                <section class="card col-3 row-3">
-                    <header>T-SHIRT 006</header>
-                    <description>description</description>
-                    <img src="../public/images/jibshirt1.png" alt="TSHIRT" width="210" height="auto" />
-                    <h2>price: $30$</h2>
-                </section>
-            </div>
-            <div class="row">
-                <section class="card col-3 row-3">
-                    <header>T-SHIRT 006</header>
-                    <description>description</description>
-                    <img src="../public/images/jibshirt1.png" alt="TSHIRT" width="210" height="auto" />
-                    <h2>price: $30$</h2>
-                </section>
-                <section class="card col-3 row-3">
-                    <header>T-SHIRT 006</header>
-                    <description>description</description>
-                    <img src="../public/images/jibshirt1.png" alt="TSHIRT" width="210" height="auto" />
-                    <h2>price: $30$</h2>
-                </section>
-                <section class="card col-3 row-3">
-                    <header>T-SHIRT 006</header>
-                    <description>description</description>
-                    <img src="../public/images/jibshirt1.png" alt="TSHIRT" width="210" height="auto" />
-                    <h2>price: $30$</h2>
-                </section>
-            </div>
-    </div>
-    </div>
-    </div>
-    </div>
+        <div class="row">
+            <section class="card col-3 row-3">
+                <header>BEANIE 004</header>
+                <description>description</description>
+                <img src="../public/images/jibshirt1.png" alt="BEANIE" width="210" height="auto" />
+                <h2>$30$</h2>
+            </section>
+            <section class="card col-3 row-3">
+                <header>HOODIE 005</header>
+                <description>description</description>
+                <img src="../public/images/jibshirt1.png" alt="HOODIE" width="210" height="auto" />
+                <h2>$30$</h2>
+            </section>
+            <section class="card col-3 row-3">
+                <header>T-SHIRT 006</header>
+                <description>description</description>
+                <img src="../public/images/jibshirt1.png" alt="TSHIRT" width="210" height="auto" />
+                <h2>$30$</h2>
+            </section>
+        </div>
+        <div class="row">
+            <section class="card col-3 row-3">
+                <header>T-SHIRT 006</header>
+                <description>description</description>
+                <img src="../public/images/jibshirt1.png" alt="TSHIRT" width="210" height="auto" />
+                <h2>$30$</h2>
+            </section>
+            <section class="card col-3 row-3">
+                <header>T-SHIRT 006</header>
+                <description>description</description>
+                <img src="../public/images/jibshirt1.png" alt="TSHIRT" width="210" height="auto" />
+                <h2>$30$</h2>
+            </section>
+            <section class="card col-3 row-3">
+                <header>T-SHIRT 006</header>
+                <description>description</description>
+                <img src="../public/images/jibshirt1.png" alt="TSHIRT" width="210" height="auto" />
+                <h2>$30$</h2>
+            </section>
+        </div>
+        <div class="row">
+            <section class="card col-3 row-3">
+                <header>T-SHIRT 006</header>
+                <description>description</description>
+                <img src="../public/images/jibshirt1.png" alt="TSHIRT" width="210" height="auto" />
+                <h2>price: $30$</h2>
+            </section>
+            <section class="card col-3 row-3">
+                <header>T-SHIRT 006</header>
+                <description>description</description>
+                <img src="../public/images/jibshirt1.png" alt="TSHIRT" width="210" height="auto" />
+                <h2>price: $30$</h2>
+            </section>
+            <section class="card col-3 row-3">
+                <header>T-SHIRT 006</header>
+                <description>description</description>
+                <img src="../public/images/jibshirt1.png" alt="TSHIRT" width="210" height="auto" />
+                <h2>$30$</h2>
+            </section>
+        </div>
     </main>
-    </div>
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- if logged in -->
+<script src="/js/logout.js"></script>
+<!-- end if -->
 <script src="/js/store.js"></script>
 
 </html>

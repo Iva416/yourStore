@@ -8,8 +8,11 @@ router.get('/', async (req, res) => {
     res.json(err);
   });
 
-  const product = productData.map((product) => product.get({ plain: true }));
-  res.render('home', { product, logged_in: req.session.logged_in });
+  const products = productData.map((product) => product.get({ plain: true }));
+  console.log('---------------------------------------');
+  console.log(products);
+  console.log('---------------------------------------');
+  res.render('home', { product: products, logged_in: req.session.logged_in });
 });
 
 router.get('/cart', withAuth, async (req, res) => {
