@@ -15,11 +15,10 @@ router.get('/', auth, async (req, res) => {
       where: {
         user_id: req.session.user_id,
       },
-      include: { model: Product, through: ProductOrder },
+      include: { model: ProductOrder, include: Product },
     });
 
     const orders = orderData.map((order) => order.get({ plain: true }));
-    console.log(orders);
     res.render('orders', {
       orders: orders,
       logged_in: req.session.logged_in,
@@ -39,12 +38,11 @@ router.get('/:id', auth, async (req, res) => {
         id: req.params.id,
         user_id: req.session.user_id,
       },
-      include: { model: Product, through: ProductOrder },
+      include: { model: ProductOrder, include: Product },
     });
 
     if (orderData !== null) {
       const order = orderData.get({ plain: true });
-      console.log(order);
       res.render('order', {
         order: order,
         logged_in: req.session.logged_in,
@@ -64,8 +62,10 @@ router.post('/', auth, async (req, res) => {
   try {
     let cart = await Cart.findOne({
       where: { user_id: req.session.user_id },
-      include: { model: Product, through: ProductCart },
+      include: { model: ProductCart, include: Product },
     });
+
+    console.log(cart);
 
     if (cart !== null) {
       let order = await Order.create({ user_id: req.session.user_id });

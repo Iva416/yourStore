@@ -1,8 +1,8 @@
-<h2>Order: {{order.products.0.name}}</h2>
+<h2>Order: {{order.product_orders.0.name}}</h2>
 
 <ul id='order-list'>
-    {{#if order.products.length}}
-        {{#each order.products as |product|}}
+    {{#if order.product_orders.length}}
+        {{#each order.product_orders as |product|}}
             {{> order-product}}
         {{/each}}
     {{else}}
