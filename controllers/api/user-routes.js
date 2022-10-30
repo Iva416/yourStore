@@ -1,17 +1,20 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Cart } = require('../../models');
 
 // POST register
 router.post('/register', async (req, res) => {
   try {
     let userCheck = await User.findOne({ where: { email: req.body.email } });
     if (userCheck === null) {
-      await User.create(req.body);
-
+      const userData = await User.create(req.body);
+      const user = userData.get({ plain: true });
+      await Cart.create({
+        user_id: user.id,
+      });
       res.redirect(307, '/api/user/login');
     } else {
       // Email already assocciated with account
-      res.status(201).json('An account with this email already exists');
+      res.status(401).json('An account with this email already exists');
     }
   } catch (err) {
     console.log(err);
