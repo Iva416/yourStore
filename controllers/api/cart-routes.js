@@ -48,7 +48,7 @@ router.post('/submit/:id', auth, async (req, res) => {
   //check user ownership of cart
   const rawCart = await Cart.findByPk(req.params.id);
   const cart = rawCart.get({ plain: true });
-  if (req.session.user_id == cart.user_id) {
+  if (req.session.user_id === cart.user_id) {
     const rawList = await ProductCart.findAll({
       where: { cart_id: req.params.id },
     });

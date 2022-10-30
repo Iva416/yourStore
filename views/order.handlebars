@@ -1,0 +1,13 @@
+<h2>Order: {{order.products.0.name}}</h2>
+
+<ul id='order-list'>
+    {{#if order.products.length}}
+        {{#each order.products as |product|}}
+            {{> order-product}}
+        {{/each}}
+    {{else}}
+        <div> This order has no products!</div>
+    {{/if}}
+</ul>
+
+<script src="/js/order.js"></script>

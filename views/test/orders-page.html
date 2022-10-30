@@ -1,9 +1,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Your Store</title>
-    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="../../public/css/reset.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/store.css">
+    <link rel="stylesheet" href="../../public/css/store.css">
 </head>
 
 <body>
@@ -16,18 +16,29 @@
         <nav class="topnav">
             <a href="/">Home</a>
             <a href="/api/cart">Cart</a>
-            <a href="/api/orders">Orders</a>
+            <a href="/api/orders">Order</a>
             <div class="topnav-right">
-                {{#if logged_in}}
-                    <a href="#" id="logout">Logout</a>
-                {{else}}
-                    <a href="/login">Login</a>
-                {{/if}}
+                <a href="#" id="logout">Logout</a>
             </div>
         </nav>
 
         <main class="container container-fluid mt-5">
-            {{{ body }}}
+            <h2>Your Orders</h2>
+
+            <ul id="order-list">
+                <li>
+
+                    <!-- Show First product in order -->
+                    <img src="../../public/images/jibshirt1.png" alt="">
+                    <span>Order: Shirt 1</span>
+                </li>
+                <li>
+
+                    <!-- Show First product in order -->
+                    <img src="../../public/images/jibshirt1.png" alt="">
+                    <span>Order: Shirt 1</span>
+                </li>
+            </ul>
         </main>
     </div>
 
@@ -46,7 +57,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
 {{#if logged_in}}
-    <script src="/js/logout.js"></script>
+<script src="/js/logout.js"></script>
 {{/if}}
 <script src="/js/store.js"></script>
 

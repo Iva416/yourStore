@@ -1,0 +1,13 @@
+<h2>Your Orders</h2>
+
+<ul id='order-list'>
+    {{#if orders.length}}
+        {{#each orders as |order|}}
+            {{> order}}
+        {{/each}}
+    {{else}}
+        <div> You have no orders!</div>
+    {{/if}}
+</ul>
+
+<script src="/js/orders.js"></script>
