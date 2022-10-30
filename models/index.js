@@ -68,5 +68,19 @@ Product.belongsToMany(Order, {
     unique: false,
   },
 });
+Order.hasMany(ProductOrder, {
+  foreignKey: 'order_id',
+  onDelete: 'CASCADE',
+});
+ProductOrder.belongsTo(Order, {
+  foreignKey: 'order_id',
+});
+Product.hasMany(ProductOrder, {
+  foreignKey: 'product_id',
+  onDelete: 'CASCADE',
+});
+ProductOrder.belongsTo(Product, {
+  foreignKey: 'product_id',
+});
 
 module.exports = { Cart, Product, Order, User, ProductCart, ProductOrder };
