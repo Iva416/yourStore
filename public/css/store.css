@@ -1,19 +1,22 @@
-:root {
-  --dark-black: black;
-  --black: #333;
-  --hover-black: rgb(83, 83, 83);
-  --other-black: #0b0c10;
-}
-
 * {
   margin: 0;
-  padding: 0;
-  box-sizing: content-box;
-  color: #c5c6c7;
+  padding: 5;
+  box-sizing: border-box;
+  border-style: none;
+  color: #090909;
+}
+
+body {
+  background-color: var(--black);
+}
+
+h1 {
+  color: var(--white);
 }
 
 /* Add a black background color to the top navigation */
 .topnav {
+  background-color: #333;
   background-color: var(--black);
   overflow: hidden;
 }
@@ -23,7 +26,8 @@
   float: left;
   color: #f2f2f2;
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px 16px 14px;
+  padding-bottom: 16px;
   text-decoration: none;
   font-size: 17px;
 }
@@ -36,7 +40,7 @@
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #04aa6d;
+  background-color: #aa7b04;
   color: white;
 }
 
@@ -53,6 +57,8 @@
   max-height: 200vh;
   text-align: center;
   margin: auto;
+  border-style: none;
+  padding: 14px 16px;
 }
 
 main {
@@ -82,8 +88,15 @@ body {
   /* margin-top: 50px; */
 }
 
-/* CSS for order-listing */
-#order-list {
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #080808 !important;
+  color: #fff;
+  line-height: 1.6;
+  text-align: center;
+}
+
+#order-list li {
   list-style: none;
   width: 80%;
   margin-left: 10%;
