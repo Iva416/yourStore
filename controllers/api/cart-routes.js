@@ -1,7 +1,13 @@
 const router = require('express').Router();
 
-const { Cart, ProductCart, Order, ProductOrder } = require('../../models');
-const auth = require('../../utils/auth');
+const {
+  Cart,
+  ProductCart,
+  Order,
+  ProductOrder,
+  Product,
+} = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // GET to get cart with the provided user id
 // router.get('/', auth, async (req, res) => {
@@ -16,8 +22,27 @@ const auth = require('../../utils/auth');
 //     res.status(500).json(err);
 //   }
 // });
+//get all products from user shopping cart
+router.get('/', withAuth, async (req, res) => {
+  try {
+    const rawProduct = await Cart.findOne({
+      where: { user_id: req.session.user_id },
+      include: [{ model: ProductCart, include: Product }],
+    });
 
-router.delete('/', auth, async (req, res) => {
+    const product = rawProduct.get({ plain: true });
+
+    res.render('cart', {
+      ...product,
+      logged_in: req.session.logged_in,
+      username: req.session.name,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.delete('/', withAuth, async (req, res) => {
   try {
     const rawData = await ProductCart.findOne({
       where: {
@@ -37,14 +62,14 @@ router.delete('/', auth, async (req, res) => {
   }
 });
 
-router.get('/test', async (req, res) => {
-  const rawList = await ProductCart.findAll({
-    where: { cart_id: 2 },
-  });
-  res.json(rawList);
-});
+// router.get('/test', async (req, res) => {
+//   const rawList = await ProductCart.findAll({
+//     where: { cart_id: 2 },
+//   });
+//   res.json(rawList);
+// });
 
-router.post('/submit/:id', auth, async (req, res) => {
+router.post('/submit/:id', withAuth, async (req, res) => {
   //check user ownership of cart
   const rawCart = await Cart.findByPk(req.params.id);
   const cart = rawCart.get({ plain: true });

@@ -18,26 +18,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-//get all products from user shopping cart
-router.get('/cart', withAuth, async (req, res) => {
-  try {
-    const rawProduct = await Cart.findOne({
-      where: { user_id: req.session.user_id },
-      include: [{ model: ProductCart, include: Product }],
-    });
-
-    const product = rawProduct.get({ plain: true });
-
-    res.render('cart', {
-      ...product,
-      logged_in: req.session.logged_in,
-      username: req.session.name,
-    });
-  } catch {
-    res.status(500).json(err);
-  }
-});
-
 router.get('/login', async (req, res) => {
   try {
     res.render('login');

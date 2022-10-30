@@ -34,7 +34,7 @@ const submitButtonHandler = async (event) => {
 
     if (response.ok) {
       //   console.log(await response.json());
-      document.location.replace('/cart');
+      document.location.replace('/api/cart');
     } else {
       alert('Shopping Cart is Empty~! Please add some products first.');
     }
