@@ -3,7 +3,7 @@
   padding: 5;
   box-sizing: border-box;
   border-style: none;
-  color: #090909;
+  /* color: white; */
 }
 
 body {
@@ -49,7 +49,7 @@ h1 {
   float: right;
 }
 
-.card {
+.home-card {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -59,14 +59,16 @@ h1 {
   margin: auto;
   border-style: none;
   padding: 14px 16px;
+  color:black;
+  background-color: white;
 }
 
-main {
+/* main {
   display: flex;
   flex-wrap: wrap;
   margin-top: 2%;
   background-color: var(--other-black);
-}
+} */
 
 main h2 {
   margin: 0 auto;
