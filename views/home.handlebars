@@ -1,10 +1,10 @@
-<div class='d-flex row justify-space-between g-2 all-products'>
+<div class='d-flex row  g-2 mx-1 all-products'>
 
 
   {{#each product as |prod|}}
-    <section class='home-card mb-2'>
+    <section class='home-card mb-2 align-items-center'>
       <div>{{prod.name}}</div>
-      <img src='{{prod.path}}' alt='{{prod.name}}' width='210' height='auto' />
+      <img src='{{prod.path}}' alt='{{prod.name}}' width='210' height='190' />
       <h2>{{prod.price}} CAD</h2>
       <description>{{prod.description}}</description>
       <button class="btn btn-success" data-pid="{{prod.id}}">Add to Cart</button>
