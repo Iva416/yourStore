@@ -7,6 +7,7 @@ const {
   Order,
 } = require('../models');
 const withAuth = require('../utils/auth');
+const { format_date } = require('../utils/helpers');
 
 //Route to get all product
 router.get('/', async (req, res) => {
@@ -17,7 +18,11 @@ router.get('/', async (req, res) => {
         where: { user_id: req.session.user_id },
         include: [{ model: ProductCart }],
       });
-      const NumInCart = cartData.product_carts.length;
+
+      let NumInCart = 0;
+      if (cartData !== null) {
+        NumInCart = cartData.product_carts.length;
+      }
       const product = productData.map((product) =>
         product.get({ plain: true })
       );
@@ -52,16 +57,19 @@ router.get('/cart', withAuth, async (req, res) => {
       where: { user_id: req.session.user_id },
       include: [{ model: ProductCart, include: Product }],
     });
-    const product = rawProduct.get({ plain: true });
-    let NumInCart = rawProduct.product_carts.length;
 
-    res.render('cart', {
-      ...product,
-      NumInCart,
-      logged_in: req.session.logged_in,
-      username: req.session.name,
-    });
+    if (rawProduct !== null) {
+      const product = rawProduct.get({ plain: true });
+      let NumInCart = rawProduct.product_carts.length;
+      res.render('cart', {
+        ...product,
+        NumInCart,
+        logged_in: req.session.logged_in,
+        username: req.session.name,
+      });
+    }
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -99,6 +107,11 @@ router.get('/orders', withAuth, async (req, res) => {
     let NumInCart = cartData.product_carts.length;
 
     const orders = orderData.map((order) => order.get({ plain: true }));
+
+    for (const index in orders) {
+      orders[index].creation_time = format_date(orders[index].creation_time);
+    }
+
     res.render('orders', {
       orders: orders,
       NumInCart,
@@ -129,6 +142,7 @@ router.get('/orders/:id', withAuth, async (req, res) => {
 
     if (orderData !== null) {
       const order = orderData.get({ plain: true });
+      order.creation_time = format_date(order.creation_time);
       res.render('order', {
         NumInCart,
         order: order,
