@@ -26,4 +26,14 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+router.post('/', async (req, res) => {
+  try {
+    const product = await Product.bulkCreate(req.body);
+
+    res.json(product).status(200);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
