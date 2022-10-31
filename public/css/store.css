@@ -1,4 +1,5 @@
-.root {
+:root {
+  --hover-black: rgb(90, 90, 90);
   --black: black;
   --mustard: #aa7b04;
   --darkgrey: #333;
@@ -79,7 +80,7 @@ h1 {
 
 main h2 {
   margin: 0 auto;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 body {
@@ -113,12 +114,13 @@ body {
 
 #order-list li:hover {
   background-color: var(--hover-black);
+  cursor: pointer;
 }
 
 #order-list li {
   border-radius: 5px;
   padding: 10px;
-  background-color: var(--black);
+  background-color: var(--darkgrey);
   margin-bottom: 10px;
 }
 #order-list li img {

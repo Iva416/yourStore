@@ -3,7 +3,7 @@
 <ul id='order-list'>
     {{#if orders.length}}
         {{#each orders as |order|}}
-            {{> order}}
+            {{> single-order}}
         {{/each}}
     {{else}}
         <div> You have no orders!</div>

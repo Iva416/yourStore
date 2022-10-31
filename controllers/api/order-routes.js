@@ -9,53 +9,53 @@ const {
 const auth = require('../../utils/auth');
 
 // GET get all orders from the active user
-router.get('/', auth, async (req, res) => {
-  try {
-    const orderData = await Order.findAll({
-      where: {
-        user_id: req.session.user_id,
-      },
-      include: { model: ProductOrder, include: Product },
-    });
+// router.get('/', auth, async (req, res) => {
+//   try {
+//     const orderData = await Order.findAll({
+//       where: {
+//         user_id: req.session.user_id,
+//       },
+//       include: { model: ProductOrder, include: Product },
+//     });
 
-    const orders = orderData.map((order) => order.get({ plain: true }));
-    res.render('orders', {
-      orders: orders,
-      logged_in: req.session.logged_in,
-      username: req.session.name,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     const orders = orderData.map((order) => order.get({ plain: true }));
+//     res.render('orders', {
+//       orders: orders,
+//       logged_in: req.session.logged_in,
+//       username: req.session.name,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // Get single order
 // Display all products in the order
-router.get('/:id', auth, async (req, res) => {
-  try {
-    const orderData = await Order.findOne({
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
-      },
-      include: { model: ProductOrder, include: Product },
-    });
+// router.get('/:id', auth, async (req, res) => {
+//   try {
+//     const orderData = await Order.findOne({
+//       where: {
+//         id: req.params.id,
+//         user_id: req.session.user_id,
+//       },
+//       include: { model: ProductOrder, include: Product },
+//     });
 
-    if (orderData !== null) {
-      const order = orderData.get({ plain: true });
-      res.render('order', {
-        order: order,
-        logged_in: req.session.logged_in,
-        username: req.session.name,
-      });
-    } else {
-      res.statusCode(403);
-    }
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+//     if (orderData !== null) {
+//       const order = orderData.get({ plain: true });
+//       res.render('order', {
+//         order: order,
+//         logged_in: req.session.logged_in,
+//         username: req.session.name,
+//       });
+//     } else {
+//       res.statusCode(403);
+//     }
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 // Make current cart into order
 router.post('/', auth, async (req, res) => {

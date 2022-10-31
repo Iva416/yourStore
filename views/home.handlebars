@@ -1,6 +1,6 @@
 <div class='d-flex row justify-space-between g-2 all-products'>
 
-  {{!-- <div class='row'> --}}
+
   {{#each product as |prod|}}
     <section class='home-card mb-2'>
       <div>{{prod.name}}</div>
@@ -10,102 +10,5 @@
       <button class="btn btn-success" data-pid="{{prod.id}}">Add to Cart</button>
     </section>
   {{/each}}
-  {{!-- <section class='card col-3 row-3'>
-      <div>PANTS 002</div>
-      <img src='images/jibshirt1.png' alt='PANTS' width='210' height='auto' />
-      <h2>30$</h2>
-      <description>description</description>
-    </section>
-    <section class='card col-3 row-3'>
-      <div>LONG SLEEVE 003</div>
-      <img src='images/jibshirt1.png' alt='LONG SLEEVE SHIRT' width='210' height='auto' />
-      <h2>30$</h2>
-      <description>description</description>
-    </section> --}}
-  {{!-- </div> --}}
-  {{!--   
-  <div class='row'>
-    <section class='card col-3 row-3'>
-      <div>TSHIRT</div>
-      <img src='images/jibshirt1.png' alt='TSHIRT' width='210' height='auto' />
-      <h2>30$</h2>
-      <description>Soft 100% Cotton</description>
-    </section>
-    <section class='card col-3 row-3'>
-      <div>PANTS 002</div>
-      <img src='images/jibshirt1.png' alt='PANTS' width='210' height='auto' />
-      <h2>30$</h2>
-      <description>description</description>
-    </section>
-    <section class='card col-3 row-3'>
-      <div>LONG SLEEVE 003</div>
-      <img src='images/jibshirt1.png' alt='LONG SLEEVE SHIRT' width='210' height='auto' />
-      <h2>30$</h2>
-      <description>description</description>
-    </section>
-  </div>
-  <div class='row'>
-    <section class='card col-3 row-3'>
-      <div>{{products.0.name}}</div>
-      <img src='images/jibshirt1.png' quit alt='TSHIRT' width='210' height='auto' />
-      <h2>30$</h2>
-      <description>Soft 100% Cotton</description>
-    </section>
-    <section class='card col-3 row-3'>
-      <div>{{product.0.name}}</div>
-      <img src='images/jibshirt1.png' alt='PANTS' width='210' height='auto' />
-      <h2>{{product.0.price}}</h2>
-      <description>description</description>
-    </section>
-    <section class='card col-3 row-3'>
-      <div>{{product.0.name}}</div>
-      <img src='images/jibshirt1.png' alt='LONG SLEEVE SHIRT' width='210' height='auto' />
-      <h2>30$</h2>
-      <description>description</description>
-    </section>
-  </div> --}}
 
-</div>
-
-
-{{!-- <div class='home-card'>
-  <div class='home-card-body'>
-    <section class='card'>
-      <header>{{product.name}}</header>
-      <img src='{{product.path}}' alt='Product001' width='400' height='200' />
-      <h2>{{product.price}}</h2>
-      <description>{{product.description}}</description>
-    </section>
-    <section class='card'>
-      <header>{{product.name}}</header>
-      <img src='{{product.path}}' alt='Product002' width='400' height='200' />
-      <h2>{{product.price}}</h2>
-      <description>{{product.description}}</description>
-    </section>
-    <section class='card'>
-      <header>{{product.name}}</header>
-      <img src='{{product.path}}' alt='Product003' width='400' height='200' />
-      <h2>{{product.price}}</h2>
-      <description>{{product.description}}</description>
-    </section>
-    <section class='card'>
-      <header>{{product.name}}</header>
-      <img src='{{product.path}}' alt='Product004' width='400' height='200' />
-      <h2>{{product.price}}</h2>
-      <description>{{product.description}}</description>
-    </section>
-    <section class='card'>
-      <header>{{product.name}}</header>
-      <img src='{{product.path}}' alt='Product005' width='400' height='200' />
-      <h2>{{product.price}}</h2>
-      <description>{{product.description}}</description>
-    </section>
-    <section class='card'>
-      <header>{{product.name}}</header>
-      <img src='{{product.path}}' alt='Product006' width='400' height='200' />
-      <h2>{{product.price}}</h2>
-      <description>{{product.description}}</description>
-    </section>
-  </div>
-</div>
---}}
+  <script src="/js/store.js"></script>
