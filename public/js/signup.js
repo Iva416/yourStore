@@ -23,3 +23,7 @@ const signupFormHandler = async (event) => {
 document
   .querySelector('.signup-form')
   .addEventListener('submit', signupFormHandler);
+
+document.querySelector('#navHome').setAttribute('class', '');
+document.querySelector('#navCart').setAttribute('class', 'position-relative');
+document.querySelector('#navOrders').setAttribute('class', '');

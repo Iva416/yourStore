@@ -26,3 +26,7 @@ const loginFormHandler = async (event) => {
 document
   .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);
+
+document.querySelector('#navHome').setAttribute('class', '');
+document.querySelector('#navCart').setAttribute('class', 'position-relative');
+document.querySelector('#navOrders').setAttribute('class', '');
