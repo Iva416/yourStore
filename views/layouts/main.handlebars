@@ -1,53 +1,55 @@
-<head>
-    <meta charset="UTF-8">
+<html lang='en'>
+
+  <head>
+    <meta charset='UTF-8' />
     <title>Your Store</title>
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/store.css">
-</head>
+    <link rel='stylesheet' href='css/reset.css' />
+    <link
+      rel='stylesheet'
+      href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'
+    />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200&family=Barlow+Semi+Condensed&family=Bungee+Spice&family=Oooh+Baby&family=Satisfy&display=swap'
+      rel='stylesheet'
+    />
+    <link rel='stylesheet' href='css/store.css' />
+  </head>
 
-<body>
-    <div class="flex-column justify-space-around">
-        <header class="display-flex justify-space-between align-center p-2"></header>
-        <h1 class="text-center">
-            YourStore
-        </h1>
-        </header>
-        <nav class="topnav">
-            <a href="/">Home</a>
-            <a href="/cart">Cart</a>
-            <a href="/api/orders">Orders</a>
-            <div class="topnav-right">
-                {{#if logged_in}}
-                    <a href="#" id="logout">Logout</a>
-                {{else}}
-                    <a href="/login">Login</a>
-                {{/if}}
-            </div>
-        </nav>
-
-        <main class="container container-fluid mt-5">
-            {{{ body }}}
-        </main>
-    </div>
-
-    <footer class="footer">
-        <div class="text-right">
-            <a class="text-light px-2" href="#">Contact Us</a>
-            <a class="text-light px-2" href="#">help</a>
+  <body>
+    <header>
+      <h1>
+        YourStore
+      </h1>
+      <nav class='topnav'>
+        <a class='active' href='/'>Home</a>
+        <a href='/cart'>Cart</a>
+        <a href='/api/orders'>Orders</a>
+        <!-- if logged in  -->
+        {{#if logged_in}}
+          <a href='#' id='logout'>Logout</a>
+        {{else}}
+          <a href='/login'>Login</a>
+        {{/if}}
+        <div class='topnav-right'>
+          <a href='#contactus'>Contact Us</a>
+          <a href='#about'>About</a>
         </div>
-        <div>
-            Copyright 2022 @ Team 8
-        </div>
-    </footer>
-</body>
+      </nav>
+    </header>
+    <main>
+      {{{body}}}
+    </main>
+  </body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-{{#if logged_in}}
-    <script src="/js/logout.js"></script>
-{{/if}}
-<script src="/js/store.js"></script>
+  <script
+    src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js'
+  ></script>
+  <script
+    src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js'
+  ></script>
+  <!-- if logged in -->
+  <script src='/js/logout.js'></script>
+  <!-- end if -->
+  <script src='/js/store.js'></script>
 
 </html>
