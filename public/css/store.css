@@ -1,9 +1,14 @@
+.root {
+  --black: black;
+  --mustard: #aa7b04;
+  --darkgrey: #333;
+}
+
 * {
   margin: 0;
   padding: 5;
   box-sizing: border-box;
   border-style: none;
-  /* color: white; */
 }
 
 body {
