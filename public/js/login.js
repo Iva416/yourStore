@@ -28,5 +28,5 @@ document
   .addEventListener('submit', loginFormHandler);
 
 document.querySelector('#navHome').setAttribute('class', '');
-document.querySelector('#navCart').setAttribute('class', '');
+document.querySelector('#navCart').setAttribute('class', 'position-relative');
 document.querySelector('#navOrders').setAttribute('class', '');

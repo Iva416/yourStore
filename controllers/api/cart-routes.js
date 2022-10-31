@@ -29,10 +29,9 @@ router.post('/', auth, async (req, res) => {
       cart_id,
       product_id: req.body.product_id,
     });
-    console.log(result);
+
     res.status(200).json(result);
   } catch (error) {
-    console.log(error);
     res.status(500).json(error);
   }
 });

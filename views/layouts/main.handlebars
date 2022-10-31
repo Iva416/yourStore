@@ -1,14 +1,16 @@
+<!DOCTYPE html>
+
 <html lang='en'>
 
 <head>
   <meta charset='UTF-8' />
   <title>Your Store</title>
-  <link rel='stylesheet' href='css/reset.css' />
+  <link rel='stylesheet' href='/css/reset.css' />
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' />
   <link
     href='https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200&family=Barlow+Semi+Condensed&family=Bungee+Spice&family=Oooh+Baby&family=Satisfy&display=swap'
     rel='stylesheet' />
-  <link rel='stylesheet' href='css/store.css' />
+  <link rel='stylesheet' href='/css/store.css' />
 </head>
 
 <body>
@@ -22,7 +24,7 @@
         <span class="position-absolute badge rounded-pill bg-secondary" style="top:9px">{{NumInCart}}
         </span>
       </a>
-      <a href='/api/orders' id='navOrders'>Orders</a>
+      <a href='/orders' id='navOrders'>Orders</a>
       <!-- if logged in  -->
       {{#if logged_in}}
         <a href='#' id='logout'>Logout</a>
