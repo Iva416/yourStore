@@ -2,21 +2,25 @@
   {
     "name": "T-Shirt",
     "price": 20,
-    "description": "product of best designer 2022"
+    "description": "product of best designer 2022",
+    "path": "/images/tshirt001.png"
   },
   {
-    "name": "BabyShark Toy",
+    "name": "Pants",
     "price": 15,
-    "description": "product of best designer 2021"
+    "description": "product of best designer 2021",
+    "path": "/images/pants002.png"
   },
   {
-    "name": "MacBook",
-    "price": 1000,
-    "description": "Best selling apple product"
+    "name": "Hoodie",
+    "price": 50,
+    "description": "Best selling this season",
+    "path": "/images/hoodie003.png"
   },
   {
-    "name": "Javascript Guide",
+    "name": "Long Sleeve",
     "price": 30,
-    "description": "Web develop tool you need"
+    "description": "Beautiful Long Sleeve",
+    "path": "/images/longsleeve005.png"
   }
 ]

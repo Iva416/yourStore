@@ -121,9 +121,16 @@ router.get('/orders/:id', withAuth, async (req, res) => {
       include: { model: ProductOrder, include: Product },
     });
 
+    const cartData = await Cart.findOne({
+      where: { user_id: req.session.user_id },
+      include: [{ model: ProductCart }],
+    });
+    let NumInCart = cartData.product_carts.length;
+
     if (orderData !== null) {
       const order = orderData.get({ plain: true });
       res.render('order', {
+        NumInCart,
         order: order,
         logged_in: req.session.logged_in,
         username: req.session.name,
