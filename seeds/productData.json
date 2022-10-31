@@ -1,26 +1,50 @@
 [
   {
-    "name": "T-Shirt",
-    "price": 20,
-    "description": "product of best designer 2022",
+    "name": "BLACK T-SHIRT",
+    "price": 35,
+    "description": "100% Cotton. Machine wash.",
     "path": "/images/tshirt001.png"
   },
   {
-    "name": "Pants",
-    "price": 15,
-    "description": "product of best designer 2021",
+    "name": "BLACK JOGGERS",
+    "price": 60,
+    "description": "100% Cotton. Machine wash.",
     "path": "/images/pants002.png"
   },
   {
-    "name": "Hoodie",
-    "price": 50,
-    "description": "Best selling this season",
+    "name": "OFF-WHITE HOODIE",
+    "price": 80,
+    "description": "Cotton-Polyester blend. Machine wash.",
     "path": "/images/hoodie003.png"
   },
   {
-    "name": "Long Sleeve",
-    "price": 30,
-    "description": "Beautiful Long Sleeve",
+    "name": "BLACK HOODIE",
+    "price": 80,
+    "description": "Cotton-Polyester blend. Machine wash.",
+    "path": "/images/hoodie004.png"
+  },
+  {
+    "name": "BLACK LONG SLEEVE",
+    "price": 45,
+    "description": "100% Cotton. Machine wash.",
     "path": "/images/longsleeve005.png"
+  },
+  {
+    "name": "WHITE LONG SLEEVE",
+    "price": 45,
+    "description": "100% Cotton. Machine wash.",
+    "path": "/images/longsleeve006.png"
+  },
+  {
+    "name": "CAMO PANTS",
+    "price": 60,
+    "description": "100% Cotton. Machine wash.",
+    "path": "/images/pants007.png"
+  },
+  {
+    "name": "POOF BEANIE",
+    "price": 30,
+    "description": "Wool-Polyester blend. Hand Wash.",
+    "path": "/images/beanie008.png"
   }
 ]
