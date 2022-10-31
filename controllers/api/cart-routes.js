@@ -17,6 +17,26 @@ const auth = require('../../utils/auth');
 //   }
 // });
 
+router.post('/', auth, async (req, res) => {
+  try {
+    const rawCart = await Cart.findOne({
+      where: { user_id: req.session.user_id },
+    });
+    console.log(rawCart);
+    console.log(req.body.product_id);
+    const cart_id = rawCart.get({ plain: true }).id;
+    const result = await ProductCart.create({
+      cart_id,
+      product_id: req.body.product_id,
+    });
+    console.log(result);
+    res.status(200).json(result);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
+});
+
 router.delete('/', auth, async (req, res) => {
   try {
     const rawData = await ProductCart.findOne({
@@ -37,12 +57,12 @@ router.delete('/', auth, async (req, res) => {
   }
 });
 
-router.get('/test', async (req, res) => {
-  const rawList = await ProductCart.findAll({
-    where: { cart_id: 2 },
-  });
-  res.json(rawList);
-});
+// router.get('/test', async (req, res) => {
+//   const rawList = await ProductCart.findAll({
+//     where: { cart_id: 2 },
+//   });
+//   res.json(rawList);
+// });
 
 router.post('/submit/:id', auth, async (req, res) => {
   //check user ownership of cart

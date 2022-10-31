@@ -48,3 +48,9 @@ document
 document
   .querySelector('#submit-cart')
   .addEventListener('click', submitButtonHandler);
+
+document.querySelector('#navHome').setAttribute('class', '');
+document
+  .querySelector('#navCart')
+  .setAttribute('class', 'active position-relative');
+document.querySelector('#navOrders').setAttribute('class', '');

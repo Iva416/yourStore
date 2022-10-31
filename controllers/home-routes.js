@@ -6,10 +6,15 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     const productData = await Product.findAll();
-
+    const cartData = await Cart.findOne({
+      where: { user_id: req.session.user_id },
+      include: [{ model: ProductCart }],
+    });
+    let NumInCart = cartData.product_carts.length;
     const product = productData.map((product) => product.get({ plain: true }));
     res.render('home', {
       product,
+      NumInCart,
       logged_in: req.session.logged_in,
       username: req.session.name,
     });
@@ -25,15 +30,16 @@ router.get('/cart', withAuth, async (req, res) => {
       where: { user_id: req.session.user_id },
       include: [{ model: ProductCart, include: Product }],
     });
-
     const product = rawProduct.get({ plain: true });
+    let NumInCart = rawProduct.product_carts.length;
 
     res.render('cart', {
       ...product,
+      NumInCart,
       logged_in: req.session.logged_in,
       username: req.session.name,
     });
-  } catch {
+  } catch (err) {
     res.status(500).json(err);
   }
 });

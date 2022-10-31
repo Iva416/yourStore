@@ -14,9 +14,12 @@
       YourStore
     </h1>
     <nav class='topnav'>
-      <a class='active' href='/'>Home</a>
-      <a href='/cart'>Cart</a>
-      <a href='/api/orders'>Orders</a>
+      <a class='active' id='navHome' href='/'>Home</a>
+      <a href='/cart' class="position-relative" id="navCart">Cart
+        <span class="position-absolute badge rounded-pill bg-secondary" style="top:9px">{{NumInCart}}
+        </span>
+      </a>
+      <a href='/api/orders' id='navOrders'>Orders</a>
       <!-- if logged in  -->
       {{#if logged_in}}
         <a href='#' id='logout'>Logout</a>
@@ -36,9 +39,9 @@
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js'></script>
-<!-- if logged in -->
-<script src='/js/logout.js'></script>
-<!-- end if -->
-<script src='/js/store.js'></script>
+{{#if logged_in}}
+  <script src='/js/logout.js'></script>
+{{/if}}
+
 
 </html>

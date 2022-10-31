@@ -1,20 +1,20 @@
-<div class="text-dark">
+<div class="text-dark container">
 
     <div class="text-light">Hello, {{username}}</div>
     <div class="d-flex justify-content-end">
         <button class="btn btn-primary mb-3" data-cart='{{id}}' id="submit-cart">Submit Cart</button>
     </div>
-    <div class="card-group row product-list">
+    <div class="row product-list justify-content-evenly">
         {{#if product_carts.length}}
             {{#each product_carts as |cart|}}
-                <div class="card mb-2 col-3 mx-2 border">
+                <div class="card mb-3 col-lg-3 col-sm-5 border mx-3">
                     <img class="card-img-top mt-3" src="{{cart.product.path}}" alt="{{cart.product.name}}">
-                    <div class="card-body">
+                    <div class=" p-1 ">
                         <h4 class="card-title">{{cart.product.name}}</h4>
                         <p class="card-text">{{cart.product.description}}</p>
                         <div class="row justify-content-between align-items-center">
                             <p class="card-text ml-3">Price: {{cart.product.price}} CAD</p>
-                            <button class="btn btn-danger mr-2" data-cid="{{../id}}" data-pid="{{cart.product.id}}">
+                            <button class="btn btn-danger mr-2 " data-cid="{{../id}}" data-pid="{{cart.product.id}}">
                                 Remove</button>
                         </div>
                     </div>
