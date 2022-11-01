@@ -1,52 +1,61 @@
-<!DOCTYPE html>
-
 <html lang='en'>
 
-<head>
-  <meta charset='UTF-8' />
-  <title>Your Store</title>
-  <link rel='stylesheet' href='/css/reset.css' />
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' />
-  <link
-    href='https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200&family=Barlow+Semi+Condensed&family=Bungee+Spice&family=Oooh+Baby&family=Satisfy&display=swap'
-    rel='stylesheet' />
-  <link rel='stylesheet' href='/css/store.css' />
-</head>
+  <head>
+    <meta charset='UTF-8' />
+    <title>Your Store</title>
+    <link rel='stylesheet' href='/css/reset.css' />
+    <link
+      rel='stylesheet'
+      href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'
+    />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200&family=Barlow+Semi+Condensed&family=Bungee+Spice&family=Oooh+Baby&family=Satisfy&display=swap'
+      rel='stylesheet'
+    />
+    <link rel='stylesheet' href='/css/store.css' />
+  </head>
 
-<body>
-  <header>
-    <h1>
-      YourStore
-    </h1>
-    <nav class='topnav'>
-      <a class='active' id='navHome' href='/'>Home</a>
-      <a href='/cart' class="position-relative" id="navCart">Cart
-        <span class="position-absolute badge rounded-pill bg-secondary" style="top:9px">{{NumInCart}}
-        </span>
-      </a>
-      <a href='/orders' id='navOrders'>Orders</a>
-      <!-- if logged in  -->
-      {{#if logged_in}}
-        <a href='#' id='logout'>Logout</a>
-      {{else}}
-        <a href='/login'>Login</a>
-      {{/if}}
-      <div class='topnav-right'>
-        <a href='#contactus'>Contact Us</a>
-        <a href='#about'>About</a>
-      </div>
-    </nav>
-  </header>
-  <main>
-    {{{body}}}
-  </main>
-</body>
+  <body>
+    <header>
+      <h1>
+        YourStore
+      </h1>
+      <nav class='topnav'>
+        <a class='active' id='navHome' href='/'>Home</a>
+        <a href='/cart' class='position-relative' id='navCart'>Cart
+          <span
+            class='position-absolute badge rounded-pill bg-secondary'
+            style='top:9px'
+          >{{NumInCart}}
+          </span>
+        </a>
+        <a href='/orders' id='navOrders'>Orders</a>
+        <!-- if logged in  -->
+        {{#if logged_in}}
+          <a href='#' id='logout'>Logout</a>
+        {{else}}
+          <a href='/login'>Login</a>
+        {{/if}}
+        <div class='topnav-right'>
+          <a href='#contactus'>Contact Us</a>
+          <a href='#about'>About</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      {{{body}}}
+    </main>
 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js'></script>
-{{#if logged_in}}
-  <script src='/js/logout.js'></script>
-{{/if}}
+  </body>
 
+  <script
+    src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js'
+  ></script>
+  <script
+    src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js'
+  ></script>
+  {{#if logged_in}}
+    <script src='/js/logout.js'></script>
+  {{/if}}
 
 </html>
