@@ -158,4 +158,12 @@ router.get('/orders/:id', withAuth, async (req, res) => {
   }
 });
 
+router.get('/aboutUs', async (req, res) => {
+  try {
+    res.render('aboutus', { NumInCart: 0 });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 module.exports = router;
